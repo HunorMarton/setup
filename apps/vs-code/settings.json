@@ -1,63 +1,79 @@
 {
-    "atomKeymap.promptV3Features": true,
-    "breadcrumbs.enabled": true,
+    "breadcrumbs.enabled": false,
     "cSpell.userWords": [
-        "pharma",
-        "truthy"
+        "gitlens",
+        "stylelint",
+        "nuxt",
+        "nuxtjs",
+        "vuex"
     ],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "editor.fontFamily": "Fira Code", // Menlo
+    "editor.dragAndDrop": true,
+    "editor.fontFamily": "FiraCode-Retina", // "Fira Code" - for non retina screens
     "editor.fontLigatures": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.renderIndentGuides": false,
     "editor.renderLineHighlight": "none",
-    "editor.renderWhitespace": "all",
     "editor.scrollBeyondLastLine": false,
-    "editor.suggestSelection": "first",
     "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
         "comments": "#596377"
     },
-    "eslint.alwaysShowStatus": true,
+    "editor.wordWrap": "on",
+    "eslint.run": "onSave",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue"
+    ],
+    "explorer.openEditors.visible": 0,
+    "files.autoSave": "onFocusChange",
+    "files.associations": {
+        "*.yml.tpl": "yaml"
+    },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/android/app/build": true,
-        "**/ios/build": true,
-        "**/__pycache__/": true,
-        "**/_venv/": true,
-        "**/*.pyc": true,
-        "**/*.egg-info": true,
-        "**/coverage": true
+        "**/.idea": true
     },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "flow.useNPMPackagedFlow": true,
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "javascript.implicitProjectConfig.checkJs": true,
-    "javascript.updateImportsOnFileMove.enabled": "never",
-    "javascript.validate.enable": false,
-    "materialTheme.accent": "Tomato",
-    "python.jediEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/platforms": true,
+        "**/www": true,
+        "lib": true,
+        "plugins": true
+    },
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "tslint.autoFixOnSave": false,
-    "tslint.enable": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Ayu Light Bordered", // Material Theme High Contrast, Nord
+    "workbench.activityBar.visible": true,
     "workbench.editor.showTabs": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true
-
+    "workbench.startupEditor": "newUntitledFile"
 }

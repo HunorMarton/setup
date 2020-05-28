@@ -6,22 +6,17 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Use current directory as default search scope in Finder
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Show Path bar in Finder
-defaults write com.apple.finder ShowPathbar -bool true
-
-# Show Status bar in Finder
-defaults write com.apple.finder ShowStatusBar -bool true
-
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Hide the Dock
 defaults write com.apple.Dock autohide -bool TRUE;
 
-killall Dock
+# Show hidden files in Finder
+defaults write com.apple.finder AppleShowAllFiles YES
 
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+killall Finder
+killall Dock
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
@@ -40,3 +35,5 @@ chflags nohidden ~/Library
 
 # No desktop, I just put garbage there...
 defaults write com.apple.finder CreateDesktop -bool FALSE;killall Finder
+
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1

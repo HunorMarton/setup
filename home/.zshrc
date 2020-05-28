@@ -40,9 +40,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew docker git yarn)
+plugins=(brew docker git npm vscode)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -51,12 +52,39 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # User configuration
 # =========================================
 
-alias ls='ls -lah'
+alias ls='ls -a'
+alias shell-source="source ~/.zshrc"
+alias shell-add-alias="stt ~/.zshrc"
+alias unu-delete-dot-unu-folder="rm -rf ~/.unu/"
+alias unu-stack-complete-rerun='./run down && rm -rf ~/.unu/ && ./bin/update.sh && ./run'
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Command}}"'
+alias mongo-shell-login="mongo --ssl --sslAllowInvalidCertificates --sslAllowInvalidHostnames -u user -p password --authenticationDatabase 'admin'"
+alias portainer="docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer && open http://localhost:9000/"
+alias webserver="echo http://localhost:8000 && python -m SimpleHTTPServer 8000"
+# Docker super-logs
+function docker-ps-with-grep() {
+    if [ "$1" != "" ]
+    then
+        result=$(docker ps --format "table {{.Names}}" | grep "$1")
+        if [ "$result" != "" ]
+        then
+            docker logs -f $result
+        else
+            docker logs -f $1
+        fi
+    else
+        echo "Please pass something. e.g. dlog sockend"
+    fi
+}
+alias dlog="docker-ps-with-grep"
 
-export PATH=$HOME/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/Cellar/node/7.4.0/bin:$PATH
-export CLICOLOR=1
-export LC_ALL=en_US.UTF-8
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
+
+# Setting things because of node@10
+export PATH=/usr/local/opt/node@10/bin:$PATH #
+export LDFLAGS=-L/usr/local/opt/node@10/lib
+export CPPFLAGS=-I/usr/local/opt/node@10/include
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -64,35 +92,3 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='nano'
 fi
-
-# Keypad
-# 0 . Enter
-bindkey -s "^[Op" "0"
-bindkey -s "^[On" "."
-bindkey -s "^[OM" "^M"
-# 1 2 3
-bindkey -s "^[Oq" "1"
-bindkey -s "^[Or" "2"
-bindkey -s "^[Os" "3"
-# 4 5 6
-bindkey -s "^[Ot" "4"
-bindkey -s "^[Ou" "5"
-bindkey -s "^[Ov" "6"
-# 7 8 9
-bindkey -s "^[Ow" "7"
-bindkey -s "^[Ox" "8"
-bindkey -s "^[Oy" "9"
-# + -  * / =
-bindkey -s "^[Ok" "+"
-bindkey -s "^[Om" "-"
-bindkey -s "^[Oj" "*"
-bindkey -s "^[Oo" "/"
-bindkey -s "^[OX" "="
-
-# sierra and ssh
-ssh-add -A 2>/dev/null;
-
-export ANDROID_HOME=/Users/kenneth/Library/Android/sdk
-export ANDROID_HOME_SDK=$ANDROID_HOME
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools/:$PATH"
