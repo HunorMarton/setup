@@ -147,6 +147,8 @@ brew cask install deepl
 brew cask install iina
 # An app that silences notifications while screensharing
 brew cask install muzzle
+# Skype
+brew cask install skype
 # Spotify
 brew cask install spotify
 # Whatsapp
