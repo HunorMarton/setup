@@ -58,6 +58,8 @@ brew install autojump
 brew install zsh-autosuggestions
 # Clone of cat(1) with syntax highlighting and Git integration
 brew install bat
+# Contains convert for converting images
+brew install imagemagick
 # Small git utilities
 brew install git-extras
 # Git extension for versioning large files
