@@ -1,16 +1,7 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -24,41 +15,22 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "bashIde.logLevel": "debug",
-  "breadcrumbs.enabled": true,
-  "cSpell.enableFiletypes": [
-    "!javascript",
-    "!json",
-    "!markdown",
-    "!plaintext",
-    "!python",
-    "makefile"
-  ],
   "cSpell.enabled": true,
-  "debug.javascript.autoAttachFilter": "disabled",
-  "debug.onTaskErrors": "debugAnyway",
   "editor.accessibilitySupport": "off",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.find.globalFindClipboard": true,
-  "editor.fontFamily": "Fira code",
+  "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
-  "editor.guides.indentation": false,
-  "editor.inlineSuggest.enabled": true,
-  "editor.minimap.enabled": true,
+  "editor.guides.indentation": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "all",
-  "editor.scrollBeyondLastLine": false,
-  "editor.semanticHighlighting.enabled": true,
+  "editor.renderWhitespace": "selection",
   "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  "editor.tokenColorCustomizations": {
-    "comments": "#596377"
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit"
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.exclude": {
     "**/*.egg-info": true,
     "**/*.pyc": true,
@@ -79,16 +51,14 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "git.autofetch": true,
   "git.openRepositoryInParentFolders": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.validate.enable": false,
-  "terminal.integrated.defaultProfile.osx": "zsh",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.tsserver.maxTsServerMemory": 6000,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "Material Theme High Contrast",
-  "workbench.editor.showTabs": true,
-  "workbench.editor.untitled.hint": "hidden",
-  "workbench.startupEditor": "newUntitledFile",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "window.commandCenter": 1,
+  "window.autoDetectColorScheme": true,
+  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true
 }

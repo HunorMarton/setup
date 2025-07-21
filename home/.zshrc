@@ -40,55 +40,60 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew docker git npm vscode)
+plugins=(brew docker git)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($ZSH/completions $fpath)
 
 
 # =========================================
 # User configuration
 # =========================================
 
-alias ls='ls -a'
-alias shell-source="source ~/.zshrc"
-alias shell-add-alias="stt ~/.zshrc"
-alias unu-delete-dot-unu-folder="rm -rf ~/.unu/"
-alias unu-stack-complete-rerun='./run down && rm -rf ~/.unu/ && ./bin/update.sh && ./run'
-alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Command}}"'
-alias mongo-shell-login="mongo --ssl --sslAllowInvalidCertificates --sslAllowInvalidHostnames -u user -p password --authenticationDatabase 'admin'"
-alias portainer="docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer && open http://localhost:9000/"
-alias webserver="echo http://localhost:8000 && python -m SimpleHTTPServer 8000"
-# Docker super-logs
-function docker-ps-with-grep() {
-    if [ "$1" != "" ]
-    then
-        result=$(docker ps --format "table {{.Names}}" | grep "$1")
-        if [ "$result" != "" ]
-        then
-            docker logs -f $result
-        else
-            docker logs -f $1
-        fi
-    else
-        echo "Please pass something. e.g. dlog sockend"
-    fi
-}
-alias dlog="docker-ps-with-grep"
+alias ls='ls -lah'
+alias p=pnpm
+alias gu='git up'
+alias gcom='git commit -m'
+alias gco='git checkout'
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export CLICOLOR=1
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Setting things because of node@10
-export PATH=/usr/local/opt/node@10/bin:$PATH #
-export LDFLAGS=-L/usr/local/opt/node@10/lib
-export CPPFLAGS=-I/usr/local/opt/node@10/include
+# Configure brew shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='code'
+  export EDITOR='code'
 else
-    export EDITOR='nano'
+  export EDITOR='nano'
 fi
+
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+nvm use 22.11.0 --silent
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# prevent yarn from running in non-yarn projects
+yarn() {
+  if [ -e package-lock.lock ]; then
+    echo "⚠️  This is a npm project. Why don't you use "npm" ⁉️"
+  elif [ -e pnpm-lock.yaml ]; then
+    echo "⚠️  This is a pnpm project. Why don't you use "pnpm" ⁉️"
+  else
+    command yarn $@
+  fi
+}
