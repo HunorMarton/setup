@@ -38,8 +38,12 @@ for module in `cat brew-casks.list`; do
     brew install --cask "$module"
 done
 
+
+
 # Set up OS settings
 echo "$PREFIX Setting up OS settings..."
+chmod +x ./mac-os/configure-macos.sh
+chmod +x ./mac-os/configure-dock.sh
 ./mac-os/configure-macos.sh
 ./mac-os/configure-dock.sh
 
@@ -56,9 +60,6 @@ echo "$PREFIX Setup symlinks for dotfiles and shell stuff..."
 # Symlink dot files
 ln -fs $PWD/home/.zshrc ~
 ln -fs $PWD/home/.ssh/config ~/.ssh
-
-# install node 20
-nvm install v20
 
 # move .gitconfig
 cp ./home/.gitconfig ~
