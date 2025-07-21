@@ -9,11 +9,6 @@ set -euo pipefail
 
 PREFIX='>'
 
-# Set up OS settings
-echo "$PREFIX Setting up OS settings..."
-./mac-os/configure-macos.sh
-./mac-os/configure-dock.sh
-
 sudo xcode-select --install || true
 
 # Install homebrew
@@ -32,7 +27,6 @@ sudo launchctl limit maxfiles 2048 unlimited
 echo "$PREFIX Brew: updating and upgrading..."
 brew update
 brew upgrade
-brew tap homebrew/cask-fonts
 
 
 echo "$PREFIX Brew: tapping..."
@@ -44,6 +38,11 @@ for module in `cat brew-casks.list`; do
     brew install --cask "$module"
 done
 
+# Set up OS settings
+echo "$PREFIX Setting up OS settings..."
+./mac-os/configure-macos.sh
+./mac-os/configure-dock.sh
+
 # Install oh-my-zsh
 OMZ=~/.oh-my-zsh
 if test ! -d $OMZ
@@ -52,11 +51,6 @@ then
   curl -L http://install.ohmyz.sh | sh
 fi
 mkdir -p $OMZ/completions
-
-
-echo "$PREFIX Install global python packages..."
-pip3 install --quiet virtualenv pylint flake8
-
 
 echo "$PREFIX Setup symlinks for dotfiles and shell stuff..."
 # Symlink dot files
