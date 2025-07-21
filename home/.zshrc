@@ -68,9 +68,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='code'
+  export EDITOR='cursor'
 else
-  export EDITOR='nano'
+  export EDITOR='vim'
 fi
 
 
