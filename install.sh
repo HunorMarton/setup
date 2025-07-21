@@ -80,14 +80,12 @@ brew install --cask quicklook-json
 brew install --cask webpquicklook
 
 # Fix macOS not letting you run the plugin because it's not signed by a verified developer
-sudo xattr -cr ~/Library/QuickLook/QLMarkdown.qlgenerator
+sudo xattr -cr /Applications/QLMarkdown.app
 sudo xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 sudo xattr -cr ~/Library/QuickLook/QuickLookJSON.qlgenerator
 sudo xattr -cr ~/Library/QuickLook/WebpQuickLook.qlgenerator
 qlmanage -r
 qlmanage -r cache
-
-
 
 echo "$PREFIX Setting up VS Code..."
 mkdir -p ~/Library/Application\ Support/Code/User

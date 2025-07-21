@@ -58,7 +58,5 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "window.commandCenter": 1,
-  "window.autoDetectColorScheme": true,
-  "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true
+  "window.autoDetectColorScheme": true
 }

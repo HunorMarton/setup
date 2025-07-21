@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "\\n⬇️  Configure macOS dock"
+echo "⬇️ Configure macOS dock"
 
 # Adapted from https://github.com/jsnmrs/dotfiles/blob/main/macos/configure-dock.sh
 
@@ -85,9 +85,9 @@ function add_folder_to_dock {
   fi
 }
 
-# Adds an empty space to macOS Dock
+# Adds a visible spacer to macOS Dock
 function add_spacer_to_dock {
-  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type":"spacer-tile";}'
 }
 
 # Removes all persistent icons from macOS Dock
