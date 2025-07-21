@@ -70,13 +70,13 @@ ln -fs $PWD/skovhus.zsh-theme ~/.oh-my-zsh/themes/skovhus.zsh-theme
 # Quicklook plugins
 echo "> Installing QuickLook plugins"
 # QuickLook plugin for markdown files
-brew cask install qlmarkdown
+brew install --cask qlmarkdown
 # QuickLook plugin for plain text files
-brew cask install qlstephen
+brew install --cask qlstephen
 # QuickLook plugin for json files
-brew cask install quicklook-json
+brew install --cask quicklook-json
 # QuickLook plugin for WEBP files
-brew cask install webpquicklook
+brew install --cask webpquicklook
 
 # Fix macOS not letting you run the plugin because it's not signed by a verified developer
 sudo xattr -cr ~/Library/QuickLook/QLMarkdown.qlgenerator
